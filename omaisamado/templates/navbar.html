@@ -1,0 +1,46 @@
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ url_for('home') }}">O Mais Amado</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ url_for('noticias') }}">Notícias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('jogos') }}">Pré e Pós Jogo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('contato') }}">Contato</a>
+        <li class="nav-item">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Elenco
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ url_for('time_masculino') }}">Elenco Principal</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('mercado') }}">Mercado</a></li>
+             <li><a class="dropdown-item" href="{{ url_for('usuarios') }}">Torcedores</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{ url_for('time_ideal') }}">Seu 11 ideal</a></li>
+          </ul>
+        </li>
+        {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('sair') }}">Sair</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('login_criarconta') }}">Login/Criar Conta</a>
+          </li>
+        {% endif %}
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

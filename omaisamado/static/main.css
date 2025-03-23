@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap");
+
+.card{
+  width: 400px;
+  border: none;
+  border-radius: 10px;
+
+  background-color: #fff;
+}
+
+
+
+.stats{
+
+      background: #f2f5f8 !important;
+
+    color: #000 !important;
+}
+.articles{
+  font-size:10px;
+  color: #a1aab9;
+}
+.number1{
+  font-weight:500;
+}
+.followers{
+    font-size:10px;
+  color: #a1aab9;
+
+}
+.number2{
+  font-weight:500;
+}
+.rating{
+    font-size:10px;
+  color: #a1aab9;
+}
+.number3{
+  font-weight:500;
+}
+
+.meupost{
+    background: #f2f5f8 !important;
+}
+
+.wrapper{
+    position: relative;
+    width: 1296px;
+    height: 728px;
+    margin: 0 auto;
+    background: url("imagem/SPFC.jpg")
+}
+
+.wrapper::before{
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%)
+}
+
+
+.text{
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-family: "Be Vietnam Pro", sans-serif;
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    width: 95%;
+    font-width: 900;
+    color: #fff;
+}
