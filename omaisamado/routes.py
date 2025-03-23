@@ -61,7 +61,7 @@ def login_criarconta():
             flash('Falha no Login, email ou senha incorretos', 'alert-danger')
     if form_criarconta.validate_on_submit() and 'botao_submit_criarconta' in request.form:
         #criar usuário
-        senha_cript = bcrypt.generate_password_hash(form_criarconta.senha.data)
+        senha_cript = bcrypt.generate_password_hash(form_criarconta.senha.data).decode('utf-8')
         usuario = Usuario(username=form_criarconta.username.data, email=form_criarconta.email.data, senha=senha_cript)
         #adicionar a sessão
         database.session.add(usuario)
