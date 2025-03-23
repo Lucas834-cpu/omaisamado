@@ -1,8 +1,9 @@
-from flask import Flask
+ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, login_required, login_user
 import os
+import sqlalchemy
 
 app = Flask(__name__)
 #deoretor é uma função, que atribui a outra função uma nova funcionalidade
@@ -22,5 +23,16 @@ login_menager.login_view = 'login_criarconta'
 login_menager.login_message_category = 'alert-info'
 
 database = SQLAlchemy(app)
+from omaisamado import models
+engine = sqlalchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+inspector = sqlalchemy.inspect(engine)
+if not inspector.has_table("usuario"):
+    with app.app_context():
+        database.drop_all()
+        database.create_all()
+        print('Base de dados criada')
+else:
+    print('Base de dados já existente')
+
 
 from omaisamado import routes
